@@ -1,0 +1,11 @@
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\bin\Debug\SerialMonitor.exe.config
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\bin\Debug\SerialMonitor.exe
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\bin\Debug\SerialMonitor.pdb
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.csproj.AssemblyReference.cache
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.Properties.Resources.resources
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.csproj.GenerateResource.cache
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.csproj.CoreCompileInputs.cache
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.exe
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.pdb
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.exe.config
+D:\__TEST__\__WIN APP C#__\Serial-Monitor\WindowsFormsApp1\obj\Debug\SerialMonitor.Form1.resources
