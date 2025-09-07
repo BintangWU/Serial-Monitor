@@ -9,7 +9,7 @@ namespace SerialMonitor
     {
         private SerialPort _serialPort;
         private StringBuilder _dataBuffer;
-        private bool autoScroll = false;
+        private bool _autoScroll = true;
         private bool _isConnected = false;
 
         public Form1()
@@ -34,22 +34,17 @@ namespace SerialMonitor
                 this.Invoke(new Action(() =>
                 {
                     string receivedData = Encoding.ASCII.GetString(buffer);
-                    tb_debug.AppendText(receivedData);
-                    if (autoScroll)
+                    tb_debugging.AppendText(receivedData);
+                    if (_autoScroll)
                     {
-                        tb_debug.SelectionStart = tb_debug.Text.Length;
-                        tb_debug.ScrollToCaret();
+                        tb_debugging.SelectionStart = tb_debugging.Text.Length;
+                        tb_debugging.ScrollToCaret();
                     }
                 }));
             }
             catch (Exception ex)
             {
             }
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            ScanComPorts();
-            tb_baud.Text = "9600";
         }
 
         private void ScanComPorts()
@@ -98,6 +93,35 @@ namespace SerialMonitor
             }
         }
 
+        private void SendMessage()
+        {
+            if (!_isConnected && !_serialPort.IsOpen)
+            {
+                MessageBox.Show("Serial Port is not connected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                string message = tb_message.Text.ToString();
+                if (!string.IsNullOrEmpty(message))
+                {
+                    _serialPort.Write(message + "\r\n");
+                    tb_message.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ScanComPorts();
+            tb_baud.Text = "9600";
+        }
+
         private void btn_scan_Click(object sender, EventArgs e)
         {
             ScanComPorts();            
@@ -127,12 +151,27 @@ namespace SerialMonitor
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-            tb_debug.Clear();
+            tb_debugging.Clear();
+        }
+
+        private void btn_send_Click(object sender, EventArgs e)
+        {
+            SendMessage();
+        }
+
+        private void tb_message_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; 
+                SendMessage();
+            }   
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             SerialConnect();
         }
+
     }
 }

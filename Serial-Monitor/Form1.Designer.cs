@@ -34,10 +34,10 @@
             this.tb_baud = new System.Windows.Forms.TextBox();
             this.btn_connect = new System.Windows.Forms.Button();
             this.btn_scan = new System.Windows.Forms.Button();
-            this.tb_debug = new System.Windows.Forms.TextBox();
             this.tb_message = new System.Windows.Forms.TextBox();
             this.btn_send = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
+            this.tb_debugging = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -94,17 +94,6 @@
             this.btn_scan.UseVisualStyleBackColor = true;
             this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
             // 
-            // tb_debug
-            // 
-            this.tb_debug.BackColor = System.Drawing.Color.White;
-            this.tb_debug.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_debug.Location = new System.Drawing.Point(16, 37);
-            this.tb_debug.Multiline = true;
-            this.tb_debug.Name = "tb_debug";
-            this.tb_debug.ReadOnly = true;
-            this.tb_debug.Size = new System.Drawing.Size(423, 269);
-            this.tb_debug.TabIndex = 6;
-            // 
             // tb_message
             // 
             this.tb_message.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -112,6 +101,7 @@
             this.tb_message.Name = "tb_message";
             this.tb_message.Size = new System.Drawing.Size(353, 20);
             this.tb_message.TabIndex = 7;
+            this.tb_message.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_message_KeyPress);
             // 
             // btn_send
             // 
@@ -121,6 +111,7 @@
             this.btn_send.TabIndex = 8;
             this.btn_send.Text = "SEND";
             this.btn_send.UseVisualStyleBackColor = true;
+            this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
             // 
             // btn_clear
             // 
@@ -132,15 +123,27 @@
             this.btn_clear.UseVisualStyleBackColor = true;
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
+            // tb_debugging
+            // 
+            this.tb_debugging.BackColor = System.Drawing.Color.White;
+            this.tb_debugging.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_debugging.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_debugging.Location = new System.Drawing.Point(16, 37);
+            this.tb_debugging.Name = "tb_debugging";
+            this.tb_debugging.ReadOnly = true;
+            this.tb_debugging.Size = new System.Drawing.Size(423, 269);
+            this.tb_debugging.TabIndex = 10;
+            this.tb_debugging.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 377);
+            this.Controls.Add(this.tb_debugging);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.tb_message);
-            this.Controls.Add(this.tb_debug);
             this.Controls.Add(this.btn_scan);
             this.Controls.Add(this.btn_connect);
             this.Controls.Add(this.tb_baud);
@@ -164,10 +167,10 @@
         private System.Windows.Forms.TextBox tb_baud;
         private System.Windows.Forms.Button btn_connect;
         private System.Windows.Forms.Button btn_scan;
-        private System.Windows.Forms.TextBox tb_debug;
         private System.Windows.Forms.TextBox tb_message;
         private System.Windows.Forms.Button btn_send;
         private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.RichTextBox tb_debugging;
     }
 }
 
